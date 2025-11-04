@@ -2,6 +2,8 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../Context/AuthContext/AuthContext';
 import 'react-datepicker/dist/react-datepicker.css';
 import DatePicker from 'react-datepicker';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 
 
@@ -22,7 +24,29 @@ const AddVolunterNeedPage = () => {
         const orgName = form.organizerName.value;
         const organizerEmail = form.organizerEmail.value;
 
-        console.log(photo, deadline, title, description, category, location, number, deadline, orgName, organizerEmail);
+        const postData = { photo, deadline, title, description, category, location, number, orgName, organizerEmail }
+
+        axios.post('http://localhost:3000/posts', postData)
+            .then(res => {
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Posted Successfully",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            })
+            .catch(error => {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Cannot Post. Something went wrong.",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            })
     }
     return (
         <div className="hero bg-base-200 min-h-screen">
