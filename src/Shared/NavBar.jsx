@@ -12,7 +12,16 @@ const NavBar = () => {
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
-                    title: "Your work has been saved",
+                    title: "Logged Out Successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            })
+            .catch(error => {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Error occured when logging out",
                     showConfirmButton: false,
                     timer: 1500
                 });
@@ -32,6 +41,7 @@ const NavBar = () => {
                         <li><Link to='/'>Home</Link></li>
                         <li><Link to='/allVolunterNeed'>All Volunter Need Posts</Link></li>
                         <li><Link to='/addVolunteer'>Add Volunteer Need Post</Link></li>
+                        
 
                     </ul>
                 </div>
@@ -42,6 +52,7 @@ const NavBar = () => {
                     <Link to='/'>Home</Link>
                     <Link to='/allVolunterNeed'>All Volunteer Need Posts</Link>
                     <Link to='/addVolunteer'>Add Volunteer Need Post</Link>
+                    
                 </ul>
             </div>
             {
