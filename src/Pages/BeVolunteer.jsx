@@ -1,15 +1,47 @@
 import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router';
 import { AuthContext } from '../Context/AuthContext/AuthContext';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const BeVolunteer = () => {
     const { title, photo, number, deadline, description, category, orgName, location, organizerEmail } = useLoaderData()
     const { user } = useContext(AuthContext)
 
+    const handleRequest = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        // Sending all data to backend
+        axios.post('http://localhost:3000/requests', data)
+            .then(res => {
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Requested Successfully",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            })
+            .catch(error => {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Cannot request. Something went wrong.",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            })
+
+    }
     return (
         <div className='flex justify-center'>
             <div >
-                <div className='flex flex-col bg-amber-900 p-10 w-100'>
+                <form onSubmit={handleRequest} className='flex flex-col bg-amber-900 p-10 w-100'>
                     <h2 className='text-center text-2xl'>Be A Volunteer</h2>
                     <label className="label">Thumbnail</label>
                     <input name='photo' type="url" readOnly className="input" defaultValue={photo} />
@@ -48,13 +80,13 @@ const BeVolunteer = () => {
                     <input name='suggestion' type="email" placeholder='Give you advices' className="input" />
 
                     <label className="label">Status</label>
-                    <input name='status' type="email" defaultValue={'Requested'} placeholder='Give you advices' className="input" />
+                    <input name='status' type="text" defaultValue={'Requested'} placeholder='Give you advices' className="input" />
 
                     <div className='flex justify-center'>
-                    <button className='btn btn-secondary btn-wide my-5'>Request</button>
-                </div>
-                </div>
-                
+                        <button type='submit' className='btn btn-secondary btn-wide my-5'>Request</button>
+                    </div>
+                </form>
+
             </div>
         </div>
 
