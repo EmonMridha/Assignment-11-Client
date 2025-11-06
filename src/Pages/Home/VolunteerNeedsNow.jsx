@@ -20,7 +20,7 @@ const VolunteerNeedsNow = ({ posts }) => {
                 </div>
             </div>
             <div className='flex justify-center mt-[-40px]'>
-                <Link ><button className='btn btn-secondary'>See All</button></Link>
+                <Link to='/allVolunterNeed'><button className='btn btn-secondary'>See All</button></Link>
             </div>
         </div>
     );

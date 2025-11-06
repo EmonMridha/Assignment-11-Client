@@ -5,7 +5,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 
 const BeVolunteer = () => {
-    const { title, photo, number, deadline, description, category, orgName, location, organizerEmail } = useLoaderData()
+    const { title, photo, number, deadline, description, category, orgName, location, organizerEmail, _id } = useLoaderData()
     const { user } = useContext(AuthContext)
 
     const handleRequest = (e) => {
@@ -18,13 +18,16 @@ const BeVolunteer = () => {
         axios.post('http://localhost:3000/requests', data)
             .then(res => {
                 if (res.data.insertedId) {
-                    Swal.fire({
-                        position: "top-end",
-                        icon: "success",
-                        title: "Requested Successfully",
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
+                    axios.patch(`http://localhost:3000/posts/${_id}/decrease`)
+                        .then(() => {
+                            Swal.fire({
+                                position: "top-end",
+                                icon: "success",
+                                title: "Requested Successfully",
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                        })
                 }
             })
             .catch(error => {

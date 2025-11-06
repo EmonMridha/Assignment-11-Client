@@ -42,6 +42,7 @@ const NavBar = () => {
                         <li><Link to='/allVolunterNeed'>All Volunter Need Posts</Link></li>
                         <li><Link to='/addVolunteer'>Add Volunteer Need Post</Link></li>
                         
+                        
 
                     </ul>
                 </div>
@@ -67,7 +68,7 @@ const NavBar = () => {
                                 <Link>Add volunteer</Link>
                             </li>
                             <li>
-                                <Link>Manage My Posts</Link>
+                                <Link to='/managePosts'>Manage My Posts</Link>
                             </li>
 
                         </ul>

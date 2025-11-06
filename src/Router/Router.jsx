@@ -7,6 +7,9 @@ import VolunteerNeedsNow from "../Pages/Home/VolunteerNeedsNow";
 import AddVolunterNeedPage from "../Pages/AddVolunterNeedPage";
 import PostDetails from "../Pages/Home/PostDetails";
 import BeVolunteer from "../Pages/BeVolunteer";
+import AllVolunteerNeedPosts from "../Pages/AllVolunteerNeedPosts";
+import ManageMyPosts from "../Pages/ManageMyPosts";
+import UpdatePosts from "../Pages/UpdatePosts";
 
 const Router = createBrowserRouter([
   {
@@ -27,6 +30,15 @@ const Router = createBrowserRouter([
         Component: Register
       },
       {
+        path:'/managePosts',
+        Component: ManageMyPosts
+      },
+      {
+        path: '/allVolunterNeed',
+        loader: ()=> fetch('http://localhost:3000/posts'),
+        Component: AllVolunteerNeedPosts
+      },
+      {
         path: '/addVolunteer',
         Component: AddVolunterNeedPage
       },
@@ -39,6 +51,10 @@ const Router = createBrowserRouter([
         path: '/beVolunteer/:id',
         loader: ({params})=>fetch(`http://localhost:3000/posts/${params.id}`),
         Component: BeVolunteer
+      },
+      {
+        path:'/updatePosts/:id',
+        Component: UpdatePosts
       }
     ]
   },
