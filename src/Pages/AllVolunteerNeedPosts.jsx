@@ -9,7 +9,7 @@ const AllVolunteerNeedPosts = () => {
 
     const fetchPosts = async (query) => {
         try {
-            const res = await fetch(`http://localhost:3000/posts/search?title=${query}`)
+            const res = await fetch(`https://volunteer-server-inky.vercel.app/posts/search?title=${query}`)
             const data = await res.json();
             setPosts(data)
         }

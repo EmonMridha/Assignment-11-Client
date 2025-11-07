@@ -15,10 +15,10 @@ const BeVolunteer = () => {
         const data = Object.fromEntries(formData.entries());
 
         // Sending all data to backend
-        axios.post('http://localhost:3000/requests', data)
+        axios.post('https://volunteer-server-inky.vercel.app/requests', data)
             .then(res => {
                 if (res.data.insertedId) {
-                    axios.patch(`http://localhost:3000/posts/${_id}/decrease`)
+                    axios.patch(`https://volunteer-server-inky.vercel.app/posts/${_id}/decrease`)
                         .then(() => {
                             Swal.fire({
                                 position: "top-end",

@@ -26,7 +26,7 @@ const AddVolunterNeedPage = () => {
 
         const postData = { photo, deadline, title, description, category, location, number, orgName, organizerEmail }
 
-        axios.post('http://localhost:3000/posts', postData)
+        axios.post('https://volunteer-server-inky.vercel.app/posts', postData)
             .then(res => {
                 if (res.data.insertedId) {
                     Swal.fire({

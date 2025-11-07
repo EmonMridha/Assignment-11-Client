@@ -18,7 +18,7 @@ const Router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch('http://localhost:3000/posts').then(res => res.json()),
+        loader: () => fetch('https://volunteer-server-inky.vercel.app/posts').then(res => res.json()),
         Component: Home
       },
       {
@@ -35,7 +35,7 @@ const Router = createBrowserRouter([
       },
       {
         path: '/allVolunterNeed',
-        loader: ()=> fetch('http://localhost:3000/posts'),
+        loader: ()=> fetch('https://volunteer-server-inky.vercel.app/posts'),
         Component: AllVolunteerNeedPosts
       },
       {
@@ -44,12 +44,12 @@ const Router = createBrowserRouter([
       },
       {
         path: '/posts/:id',
-        loader: ({ params }) => fetch(`http://localhost:3000/posts/${params.id}`),
+        loader: ({ params }) => fetch(`https://volunteer-server-inky.vercel.app/posts/${params.id}`),
         Component: PostDetails,
       }, 
       {
         path: '/beVolunteer/:id',
-        loader: ({params})=>fetch(`http://localhost:3000/posts/${params.id}`),
+        loader: ({params})=>fetch(`https://volunteer-server-inky.vercel.app/posts/${params.id}`),
         Component: BeVolunteer
       },
       {

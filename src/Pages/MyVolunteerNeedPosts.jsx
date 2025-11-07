@@ -13,7 +13,7 @@ const MyVolunteerNeedPosts = () => {
 
             try {
                 console.log("Fetching posts for:", user.email);
-                const res = await fetch(`http://localhost:3000/posts/byEmail/${user.email}`);
+                const res = await fetch(`https://volunteer-server-inky.vercel.app/posts/byEmail/${user.email}`);
                 const data = await res.json();
                 console.log("Data fetched:", data);
                 setMyPosts(data);
