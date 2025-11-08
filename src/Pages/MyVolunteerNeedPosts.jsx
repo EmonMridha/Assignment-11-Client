@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../Context/AuthContext/AuthContext';
 import { Link } from 'react-router';
-import axios from 'axios';
 import Swal from 'sweetalert2';
 
 const MyVolunteerNeedPosts = () => {
@@ -14,7 +13,7 @@ const MyVolunteerNeedPosts = () => {
             if (!user?.email) return;
 
             try {
-                console.log("Fetching posts for:", user.email);
+                ("Fetching posts for:", user.email);
                 const res = await fetch(`https://volunteer-server-inky.vercel.app/posts/byEmail/${user.email}`);
                 const data = await res.json();
                 setMyPosts(data);

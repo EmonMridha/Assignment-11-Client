@@ -47,7 +47,7 @@ const Banner = () => {
                         <p className='text-lg mb-6 drop-shadow-md'>
                             Give a hand to make a difference in your community 🌍
                         </p>
-                        <Link to='/login'> <button className='btn btn-primary'>Get Started</button></Link>
+                        <button className='btn btn-primary'>Get Started</button>
                     </div>
                 </div>
 

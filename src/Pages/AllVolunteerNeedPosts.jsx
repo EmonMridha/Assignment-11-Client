@@ -14,7 +14,7 @@ const AllVolunteerNeedPosts = () => {
             setPosts(data)
         }
         catch (error) {
-            console.log(erro);
+            (erro);
         }
     }
 

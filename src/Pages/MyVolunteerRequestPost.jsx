@@ -15,11 +15,11 @@ const MyVolunteerRequestPost = ({ Requests }) => {
 
     const handleDeleteReq = (id) => {
         Swal.fire({
-            title: "Do you want to save the changes?",
+            title: "Do you want to delete the requests?",
             showDenyButton: true,
             showCancelButton: true,
             confirmButtonText: "Save",
-            denyButtonText: `Don't save`
+            denyButtonText: `Don't delete`
         }).then((result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {

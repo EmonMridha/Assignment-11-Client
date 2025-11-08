@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 const Register = () => {
 
     const { createUser, user } = useContext(AuthContext)
-    console.log(user);
+    (user);
     const handleRegister = e => {
         e.preventDefault()
         const form = e.target;

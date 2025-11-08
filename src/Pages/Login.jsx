@@ -3,11 +3,12 @@ import { AuthContext } from '../Context/AuthContext/AuthContext';
 import Lottie from 'lottie-react';
 import loginAnimation from '../assets/Register.json'
 import Swal from 'sweetalert2';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 
 const Login = () => {
 
     const { login, googleLogin } = useContext(AuthContext)
+    const navigate = useNavigate();
 
     const handleLogin = (e) => {
         e.preventDefault()
@@ -25,12 +26,14 @@ const Login = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
+
+                navigate('/')
             })
             .catch(error => {
                 Swal.fire({
                     icon: "error",
                     title: "Oops...",
-                    text: "Can't Register successfully. Something went wrong!"
+                    text: "Can't Login successfully. Something went wrong!"
                 });
             })
     }

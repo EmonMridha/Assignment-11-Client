@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 const PostCard = ({ post }) => {
     const {_id} = post
     
+    
     return (
         <div className="card bg-base-100 w-96 shadow-sm">
             <figure>

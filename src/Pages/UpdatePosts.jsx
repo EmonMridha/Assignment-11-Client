@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 const UpdatePosts = () => {
     const { user } = useContext(AuthContext)
     const { photo, title, description, category, number, location, deadline, _id } = useLoaderData();
-    console.log(photo);
+    (photo);
 
     const handleUpdatePost = async (e) => {
         e.preventDefault();
@@ -47,7 +47,7 @@ const UpdatePosts = () => {
             }
         }
         catch (error) {
-            console.log(error);
+            (error);
             Swal.fire({
                 position: "top-end",
                 icon: "success",

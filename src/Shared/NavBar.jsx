@@ -41,8 +41,7 @@ const NavBar = () => {
                         <li><Link to='/'>Home</Link></li>
                         <li><Link to='/allVolunterNeed'>All Volunter Need Posts</Link></li>
                         <li><Link to='/addVolunteer'>Add Volunteer Need Post</Link></li>
-                        
-                        
+
 
                     </ul>
                 </div>
@@ -53,7 +52,7 @@ const NavBar = () => {
                     <Link to='/'>Home</Link>
                     <Link to='/allVolunterNeed'>All Volunteer Need Posts</Link>
                     <Link to='/addVolunteer'>Add Volunteer Need Post</Link>
-                    
+
                 </ul>
             </div>
             {
@@ -75,11 +74,13 @@ const NavBar = () => {
                     </div>
                     <div className='flex tooltip tooltip-bottom' data-tip={user.displayName || 'No Name'}><img className='w-10 h-10 rounded-full' src={user.photoURL} alt="" />
                         <Link onClick={handleLogOut} className='btn'>LogOut</Link>
+                        
                     </div>
                 </div> : (
                     <div className="navbar-end">
                         <Link className='btn btn-primary' to='/login'>Login</Link>
                         <Link className='btn btn-primary' to='register'>Register</Link>
+                        <button>Toggle</button>
                     </div>
                 )
             }
