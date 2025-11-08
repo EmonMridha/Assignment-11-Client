@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../Context/AuthContext/AuthContext';
-import { useLoaderData, useParams } from 'react-router';
+import { useLoaderData } from 'react-router';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 

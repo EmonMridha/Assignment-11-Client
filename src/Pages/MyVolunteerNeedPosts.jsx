@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../Context/AuthContext/AuthContext';
 import { Link } from 'react-router';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const MyVolunteerNeedPosts = () => {
     const { user } = useContext(AuthContext);
@@ -34,6 +36,33 @@ const MyVolunteerNeedPosts = () => {
         return <div className='text-center my-20 text-red-400'>No posts found for {user?.email}</div>;
     }
 
+    const handleDeletePost = async (id) => {
+
+        Swal.fire({
+            title: "Are you sure you want to delete this?.",
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: "Yes, delete",
+            denyButtonText: `Don't delete`
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+
+                // Start deleting
+                fetch(`https://volunteer-server-inky.vercel.app/posts/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        setMyPosts(myPosts.filter(post => post._id !== id)) // keeping those whose _id doesn't match with id
+                    })
+                Swal.fire("Deleted!", "", "success");
+            } else if (result.isDenied) {
+                Swal.fire(`Couldn't delete`);
+            }
+        });
+    }
+
     return (
         <div>
 
@@ -55,7 +84,7 @@ const MyVolunteerNeedPosts = () => {
                                 <div className="card-actions justify-end">
                                     <Link to={`/posts/${post._id}`}><button className="btn btn-primary">View Details</button></Link>
                                     <Link to={`/updatePosts/${post._id}`}><button className='btn btn-secondary'>Update</button></Link>
-                                    <Link><button className='btn '>Delete</button></Link>
+                                    <Link><button onClick={() => handleDeletePost(post._id)} className='btn '>Delete</button></Link>
                                 </div>
                             </div>
                         </div>
