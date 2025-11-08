@@ -15,7 +15,6 @@ const MyVolunteerNeedPosts = () => {
                 console.log("Fetching posts for:", user.email);
                 const res = await fetch(`https://volunteer-server-inky.vercel.app/posts/byEmail/${user.email}`);
                 const data = await res.json();
-                console.log("Data fetched:", data);
                 setMyPosts(data);
             } catch (err) {
                 console.error("Error fetching posts:", err);
@@ -40,8 +39,8 @@ const MyVolunteerNeedPosts = () => {
 
             <div className='flex justify-center'>
                 <div className="space-x-4 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
-                    {myPosts.map(post => (
-                        <div className="card bg-purple-600 p-5 border-2 h-140 w-100 shadow-sm">
+                    {myPosts.map((post) => (
+                        <div key={post._id} className="card bg-purple-600 p-5 border-2 h-140 w-100 shadow-sm">
                             <figure>
                                 <img
                                     src={post.photo}
@@ -55,7 +54,7 @@ const MyVolunteerNeedPosts = () => {
 
                                 <div className="card-actions justify-end">
                                     <Link to={`/posts/${post._id}`}><button className="btn btn-primary">View Details</button></Link>
-                                    <Link to={`/updatePosts/${myPosts._id}`}><button className='btn btn-secondary'>Update</button></Link>
+                                    <Link to={`/updatePosts/${post._id}`}><button className='btn btn-secondary'>Update</button></Link>
                                     <Link><button className='btn '>Delete</button></Link>
                                 </div>
                             </div>

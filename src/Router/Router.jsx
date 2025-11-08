@@ -54,6 +54,7 @@ const Router = createBrowserRouter([
       },
       {
         path:'/updatePosts/:id',
+        loader:({params})=>fetch(`https://volunteer-server-inky.vercel.app/posts/${params.id}`),
         Component: UpdatePosts
       }
     ]
