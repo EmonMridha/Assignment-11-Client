@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../Context/AuthContext/AuthContext';
 import 'react-datepicker/dist/react-datepicker.css';
 import DatePicker from 'react-datepicker';
@@ -8,6 +8,9 @@ import Swal from 'sweetalert2';
 
 
 const AddVolunterNeedPage = () => {
+    useEffect(()=> {
+        document.title= 'Add Volunter Post - Voluntopia'
+    })
 
     const { user } = useContext(AuthContext)
     const [deadline, setDeadline] = useState(null)

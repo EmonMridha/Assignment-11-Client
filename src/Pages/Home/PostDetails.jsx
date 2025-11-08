@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, useLoaderData } from 'react-router';
 import Swal from 'sweetalert2';
 
 const PostDetails = () => {
+    useEffect(()=> {
+        document.title='Post Details - Voluntopia'
+    })
 
     const { title, _id, description, location, number, orgName, organizerEmail, photo } = useLoaderData();
-
-
-
 
     return (
         <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-lg flex flex-col md:flex-row overflow-hidden border border-gray-200">

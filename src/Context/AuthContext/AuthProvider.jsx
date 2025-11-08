@@ -6,6 +6,13 @@ import { auth } from '../../firebase/firebase.init';
 const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true)
     const [user, setUser] = useState(null)
+    
+    useEffect(()=> {
+        const savedUser = localStorage.getItem('VolunteerUser');
+        if(savedUser) {
+            setUser(JSON.parse(savedUser))
+        }
+    },[])
 
     // Register
     const createUser = (email, password) => {

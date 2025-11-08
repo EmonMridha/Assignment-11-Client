@@ -1,10 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { AuthContext } from '../Context/AuthContext/AuthContext';
 import { useLoaderData } from 'react-router';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
 const UpdatePosts = () => {
+    useEffect(()=>{
+        document.title='Update Posts - Voluntopia'
+    })
     const { user } = useContext(AuthContext)
     const { photo, title, description, category, number, location, deadline, _id } = useLoaderData();
     (photo);

@@ -1,10 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useLoaderData } from 'react-router';
 import { AuthContext } from '../Context/AuthContext/AuthContext';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
 const BeVolunteer = () => {
+    useEffect(()=> {
+        document.title= 'Be Volunteer - Voluntopia'
+    })
     const { title, photo, number, deadline, description, category, orgName, location, organizerEmail, _id, } = useLoaderData()
     const { user } = useContext(AuthContext)
 

@@ -11,11 +11,13 @@ import AllVolunteerNeedPosts from "../Pages/AllVolunteerNeedPosts";
 import ManageMyPosts from "../Pages/ManageMyPosts";
 import UpdatePosts from "../Pages/UpdatePosts";
 import PrivateRoute from "../Pages/PrivateRoute";
+import NotFound from "../Pages/NotFound";
 
 const Router = createBrowserRouter([
   {
     path: "/",
     Component: RootLayout,
+    errorElement: <NotFound></NotFound>,
     children: [
       {
         index: true,
@@ -46,11 +48,13 @@ const Router = createBrowserRouter([
       },
       {
         path: '/addVolunteer',
-        Component: () => (
-          <PrivateRoute>
-            <AddVolunterNeedPage></AddVolunterNeedPage>
-          </PrivateRoute>
-        )
+        Component: () => {
+          return (
+            <PrivateRoute>
+              <AddVolunterNeedPage />
+            </PrivateRoute>
+          );
+        }
       },
       {
         path: '/posts/:id',
@@ -64,11 +68,11 @@ const Router = createBrowserRouter([
       {
         path: '/beVolunteer/:id',
         loader: ({ params }) => fetch(`https://volunteer-server-inky.vercel.app/posts/${params.id}`),
-        Component: () => {
+        Component: () => (
           <PrivateRoute>
             <BeVolunteer></BeVolunteer>
           </PrivateRoute>
-        }
+        )
       },
       {
         path: '/updatePosts/:id',

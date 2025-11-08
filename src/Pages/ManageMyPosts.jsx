@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import MyVolunteerNeedPosts from './MyVolunteerNeedPosts';
 import MyVolunteerRequestPost from './MyVolunteerRequestPost';
 import { useLoaderData } from 'react-router';
 
 const ManageMyPosts = () => {
+
+    useEffect(()=> {
+        document.title = 'Edit - Voluntopia'
+    })
     const Requests = useLoaderData();
     return (
         <div>

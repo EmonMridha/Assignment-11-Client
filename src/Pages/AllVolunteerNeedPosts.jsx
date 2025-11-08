@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router';
 import AllVolunteerNeedPostsCard from './AllVolunteerNeedPostsCard';
 
 const AllVolunteerNeedPosts = () => {
+    useEffect(()=>{
+        document.title = 'All Volunteer Posts - Voluntopia'
+    })
     const initialPosts = useLoaderData();
     const [posts, setPosts] = useState(initialPosts)
     const [searchText, setSearchText] = useState('');

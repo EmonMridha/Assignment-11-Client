@@ -13,8 +13,11 @@ const MyVolunteerNeedPosts = () => {
             if (!user?.email) return;
 
             try {
-                ("Fetching posts for:", user.email);
-                const res = await fetch(`https://volunteer-server-inky.vercel.app/posts/byEmail/${user.email}`);
+                const res = await fetch(`https://volunteer-server-inky.vercel.app/posts/byEmail/${user.email}`, {
+                    headers: {
+                        authorization: `Bearer ${user.accessToken}`
+                    }
+                });
                 const data = await res.json();
                 setMyPosts(data);
             } catch (err) {
@@ -25,7 +28,7 @@ const MyVolunteerNeedPosts = () => {
         };
 
         fetchPosts();
-    }, [user?.email]);
+    }, [user?.email, user.accessToken]);
 
     if (loading) {
         return <div>Loading your posts...</div>;

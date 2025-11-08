@@ -3,12 +3,14 @@ import { AuthContext } from '../Context/AuthContext/AuthContext';
 import Lottie from 'lottie-react';
 import loginAnimation from '../assets/Register.json'
 import Swal from 'sweetalert2';
-import { Link, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 
 const Login = () => {
 
-    const { login, googleLogin } = useContext(AuthContext)
+    const { login, googleLogin,setUser } = useContext(AuthContext)
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const handleLogin = (e) => {
         e.preventDefault()
@@ -19,6 +21,9 @@ const Login = () => {
         // login user
         login(email, password)
             .then(result => {
+                const loggedUser = result.user;
+                localStorage.setItem("VolunteerUser", JSON.stringify(loggedUser));
+                setUser(loggedUser)
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
@@ -27,7 +32,9 @@ const Login = () => {
                     timer: 1500
                 });
 
-                navigate('/')
+                navigate(from, {replace: true});
+
+                
             })
             .catch(error => {
                 Swal.fire({
@@ -40,7 +47,10 @@ const Login = () => {
 
     const handleGoogleSignIn = () => {
         googleLogin()
-            .then(res => {
+            .then(result => {
+                const loggedUser = result.user;
+                localStorage.setItem("VolunteerUser", JSON.stringify(loggedUser));
+                setUser(loggedUser)
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
@@ -48,6 +58,7 @@ const Login = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
+                navigate(from, {replace: true})
             })
             .catch(error => {
                 Swal.fire({
