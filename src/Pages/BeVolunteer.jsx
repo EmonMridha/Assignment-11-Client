@@ -5,7 +5,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 
 const BeVolunteer = () => {
-    const { title, photo, number, deadline, description, category, orgName, location, organizerEmail, _id } = useLoaderData()
+    const { title, photo, number, deadline, description, category, orgName, location, organizerEmail, _id, } = useLoaderData()
     const { user } = useContext(AuthContext)
 
     const handleRequest = (e) => {
@@ -80,7 +80,7 @@ const BeVolunteer = () => {
                     <input name='volunteerEmail' readOnly type="email" defaultValue={user.email} className="input" />
 
                     <label className="label">Suggestion</label>
-                    <input name='suggestion' type="email" placeholder='Give you advices' className="input" />
+                    <input name='suggestion' type="text" placeholder='Give you advices' className="input" />
 
                     <label className="label">Status</label>
                     <input name='status' type="text" defaultValue={'Requested'} placeholder='Give you advices' className="input" />

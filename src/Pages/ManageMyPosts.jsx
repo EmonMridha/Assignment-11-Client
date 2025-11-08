@@ -1,8 +1,10 @@
 import React from 'react';
 import MyVolunteerNeedPosts from './MyVolunteerNeedPosts';
 import MyVolunteerRequestPost from './MyVolunteerRequestPost';
+import { useLoaderData } from 'react-router';
 
 const ManageMyPosts = () => {
+    const Requests = useLoaderData();
     return (
         <div>
             <h1 className='text-5xl text-center'>Manage My Posts</h1>
@@ -11,7 +13,7 @@ const ManageMyPosts = () => {
             <MyVolunteerNeedPosts></MyVolunteerNeedPosts>
 
             <h2 className=' text-3xl my-10 ml-5'>My Volunteer Requests</h2>
-            <MyVolunteerRequestPost></MyVolunteerRequestPost>
+            <MyVolunteerRequestPost Requests={Requests}></MyVolunteerRequestPost>
         </div>
     );
 };
