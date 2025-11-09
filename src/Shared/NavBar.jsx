@@ -42,7 +42,6 @@ const NavBar = () => {
                         <li><Link to='/allVolunterNeed'>All Volunter Need Posts</Link></li>
                         <li><Link to='/addVolunteer'>Add Volunteer Need Post</Link></li>
 
-
                     </ul>
                 </div>
                 <a className="btn btn-ghost text-2xl">Voluntiopia</a>
@@ -64,7 +63,7 @@ const NavBar = () => {
 
                         <ul tableIndex={0} className='dropdown-content menu bg-base-100 rounded-box w-52  p-2 shadow'>
                             <li>
-                                <Link>Add volunteer</Link>
+                                <Link to='/addVolunteer'>Add volunteer Need Post</Link>
                             </li>
                             <li>
                                 <Link to='/managePosts'>Manage My Posts</Link>

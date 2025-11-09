@@ -1,16 +1,35 @@
-# React + Vite
+# Voluntopia - Volunteer Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🌟 Purpose
+Voluntopia is a web application that connects volunteers with organizations that need help.
+It allows users to create, manage, and participate in volunteering events easily.
 
-Currently, two official plugins are available:
+## 🌐 Live URL
+https://assignment-11-9b7fd.web.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ⚙️ Key Features
+- User authentication (Login & Registration using Firebase)
+- Add, update, and delete volunteer posts
+- View all available volunteering opportunities
+- Join or cancel participation in events
+- Filter and search posts by category or location
+- Responsive design for mobile and desktop
 
-## React Compiler
+## 📦 NPM Packages Used
+- react-router-dom
+- axios
+- sweetalert2
+- firebase
+- react-datepicker
+- tailwindcss
+- vite
+- react-icons
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
+**Frontend:** React, Vite, Tailwind CSS  
+**Backend:** Node.js, Express.js, MongoDB  
+**Hosting:** Firebase (frontend), Vercel (backend)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+© 2025 Voluntopia
