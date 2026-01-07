@@ -68,20 +68,21 @@ const MyVolunteerNeedPosts = () => {
     return (
         <div>
 
-            <div className='flex justify-center'>
-                <div className="space-x-4 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
+            <div className='flex p-3 md: justify-center'>
+                <div className=" grid gap-5 lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
                     {myPosts.map((post) => (
-                        <div key={post._id} className="card bg-purple-600 p-5 border-2 h-140 w-100 shadow-sm">
-                            <figure>
+                        <div key={post._id} className="card bg-green-950 p-5 border-2 h-140 w-full shadow-sm">
+                            <div className='flex justify-center'>
                                 <img
                                     src={post.photo}
+                                    className='object-cover h-50 rounded-4xl'
                                     alt="Shoes" />
-                            </figure>
+                            </div>
                             <div className="card-body">
-                                <h2 className="card-title">{post.title}</h2>
+                                <h2 className="card-title text-xl">{post.title}</h2>
 
-                                <p><b>Deadline:</b> {post.deadline}</p>
-                                <p><b>Category:</b> {post.category}</p>
+                                <p className='text-xl'><b>Deadline:</b> {post.deadline}</p>
+                                <p className='text-xl'><b>Category:</b> {post.category}</p>
 
                                 <div className="card-actions justify-end">
                                     <Link to={`/posts/${post._id}`}><button className="btn btn-primary">View Details</button></Link>

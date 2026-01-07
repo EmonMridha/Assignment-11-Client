@@ -43,7 +43,7 @@ const Banner = () => {
             <div className='max-w-[1500px] w-full sm:aspect-[21/9] md:aspect-[16/7] lg:aspect-[16/6] relative group overflow-hidden'>
                 <div style={{ backgroundImage: `url(${slides[currentIndex].url})` }} className='w-full h-full rounded-2xl bg-center bg-cover duration-500 relative flex items-center justify-center '>
                     <div className='relative text-center text-white px-4'>
-                        <h2 className='text-4xl font-bold mb-4 drop-shadow-lg'>Be a Hero — Be a Volunteer Today</h2>
+                        <h2 className='lg:text-4xl text-2xl md:text-3xl font-bold mb-4 drop-shadow-lg'>Be a Hero — Be a Volunteer Today</h2>
                         <p className='text-lg mb-6 drop-shadow-md'>
                             Give a hand to make a difference in your community 🌍
                         </p>

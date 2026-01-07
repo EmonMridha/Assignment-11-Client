@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router';
 import AllVolunteerNeedPostsCard from './AllVolunteerNeedPostsCard';
+import Swal from 'sweetalert2';
 
 const AllVolunteerNeedPosts = () => {
-    useEffect(()=>{
+    useEffect(() => {
         document.title = 'All Volunteer Posts - Voluntopia'
     })
     const initialPosts = useLoaderData();
@@ -17,7 +18,7 @@ const AllVolunteerNeedPosts = () => {
             setPosts(data)
         }
         catch (error) {
-            (erro);
+            Swal.fire('error occurred')
         }
     }
 
@@ -30,7 +31,7 @@ const AllVolunteerNeedPosts = () => {
     return (
         <div className='flex justify-center'>
             <div>
-                <h1 className='text-center text-4xl font-semibold my-5'>All Volunteer Need Posts</h1>
+                <h1 className='text-center text-3xl lg:text-4xl font-semibold my-5'>All Volunteer Need Posts</h1>
 
                 {/* Search Input */}
                 <div className='flex justify-center mb-5'>
@@ -39,10 +40,10 @@ const AllVolunteerNeedPosts = () => {
                         placeholder="Search by post title..."
                         value={searchText}
                         onChange={handleSearchChange}
-                        className="border p-2 rounded w-full max-w-md"
+                        className="border p-2 rounded w-full max-w-sm"
                     />
                 </div>
-                <div className='grid gap-10 lg:grid-cols-3 md:grid-cols-2 grid-cols-1'>
+                <div className='grid gap-10 lg:grid-cols-3 p-5 md:grid-cols-2 grid-cols-1'>
                     {
                         posts.map(post => <AllVolunteerNeedPostsCard key={post._id} post={post}></AllVolunteerNeedPostsCard>)
                     }

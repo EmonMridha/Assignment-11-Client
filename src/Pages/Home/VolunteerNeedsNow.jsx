@@ -13,7 +13,7 @@ const VolunteerNeedsNow = ({ posts }) => {
     }
     return (
         <div className='p-10 rounded-2xl'>
-            <h2 className='text-center text-5xl font-semibold'>Volunteer Needs Now</h2>
+            <h2 className='text-center text-3xl md:text-5xl font-semibold'>Volunteer Needs Now</h2>
 
             {/* Toggle button */}
             <div className='flex justify-center my-6'>
@@ -22,7 +22,7 @@ const VolunteerNeedsNow = ({ posts }) => {
                 </button>
             </div>
 
-            <div className='flex justify-center rounded-2xl bg-gray-700 p-10 my-20'>
+            <div className='flex justify-center rounded-2xl bg-gray-900 p-5 sm:p-7 md:p-10 my-20'>
 
                 {
                     tableView ? (<div className='overflow-x-auto bg-gray-800 text-white rounded-2xl p-6 my-10'>

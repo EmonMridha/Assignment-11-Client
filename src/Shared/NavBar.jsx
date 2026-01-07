@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router';
 import { AuthContext } from '../Context/AuthContext/AuthContext';
 import Swal from 'sweetalert2';
 
 const NavBar = () => {
     const { user, LogOut } = useContext(AuthContext)
+    const [ open, setOpen] = useState(false)
 
     const handleLogOut = () => {
         LogOut()
@@ -44,7 +45,7 @@ const NavBar = () => {
 
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-2xl">Voluntiopia</a>
+                <Link to='/' className="btn btn-ghost  text-xl md:text-3xl">Voluntiopia</Link> 
             </div>
             <div className="navbar-center gap-5 hidden lg:flex">
                 <ul className="menu gap-5 menu-horizontal px-1">
@@ -71,15 +72,28 @@ const NavBar = () => {
 
                         </ul>
                     </div>
-                    <div className='flex tooltip tooltip-bottom' data-tip={user.displayName || 'No Name'}><img className='w-10 h-10 rounded-full' src={user.photoURL} alt="" />
-                        <Link onClick={handleLogOut} className='btn'>LogOut</Link>
-                        
+
+                    <div>
+                        <div className='relative' onClick={() => setOpen(!open)}data-tip={user.displayName || 'No Name'}><img className='rounded-full object-cover w-8 h-7 lg:w-10 lg:h-10' src={user.photoURL} alt="" />
+                        </div>
+
+                        {
+                            open && (
+                                
+                                     <Link onClick={handleLogOut} className='btn absolute right-2 sm:right-3'>LogOut</Link>  
+
+                                
+                            )
+                        }
                     </div>
+
+
                 </div> : (
                     <div className="navbar-end">
                         <Link className='btn btn-primary' to='/login'>Login</Link>
                         <Link className='btn btn-primary' to='register'>Register</Link>
-                        <button>Toggle</button>
+
+
                     </div>
                 )
             }
@@ -88,3 +102,4 @@ const NavBar = () => {
 };
 
 export default NavBar;
+
